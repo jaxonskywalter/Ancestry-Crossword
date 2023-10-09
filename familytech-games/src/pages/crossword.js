@@ -1,5 +1,5 @@
 import Board from "@/components/crossword/board";
-import styles from "@/styles/crossword.module.css"
+import styles from "@/styles/crossword.module.css";
 
 function CrosswordPage() {
 

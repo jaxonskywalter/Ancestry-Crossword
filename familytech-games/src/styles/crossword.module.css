@@ -5,19 +5,19 @@
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 28px;
+  height: 23px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 28px;
+  width: 23px;
   text-transform: capitalize;
   
 }
 
 .number {
   position: absolute;
-  bottom: 4px; 
+  bottom: -2px;
   left: 2px;
   font-size: .7em;
 }
@@ -28,10 +28,20 @@
     position: relative;
 }
 
+
+.h1{
+  text-align: center;
+  font-weight: bold;
+  color: var(--blue);
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+
 .clue{
   border: 1px solid rgb(0, 0, 0);
   float: left;
-  font-size: 24px;
+  font-size: 23px;
   text-align: center;
 }
 
@@ -39,14 +49,35 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
+  color:black;
+  
+}
+.cluesection{
+  margin-bottom: 30px;
+  margin-top: -15px;
+  position:relative;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.721);
+padding: 20px;
+  color: rgb(0,51,153);
+  box-shadow: rgba(13, 11, 24, 0.56) 0px 22px 70px 4px;
+  border-radius: 25px;
+  padding: 20px;
+  width: 600px;
+  height: 300px;
+  overflow: auto;
+  padding-bottom: 10px;
+  padding-right: 100px;
 }
 
 .modal_container {
   position: fixed;
   z-index: 2;
   text-align: center;
-  background-color: #f6daf7;
-  background-color: #ffc7c7;
+  color:white;
+  background-color: rgb(131, 175, 131);
   width: 50%;
   height: fit-content;
   top: 20%;
@@ -60,4 +91,89 @@
   right: 15px;
   top: 15px;
   padding: 10px;
+  background-color: black;
+  color: white;
+}
+.helptip{
+  position: absolute;
+  top: 18px;
+  right: 260px;
+  text-align: center;
+  background-color: var(--blue);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 26px;
+  cursor: default;
+  z-index: 999;
+}
+
+.helptip:before{
+  content:'?';
+  font-weight: bold;
+  color:#fff;
+}
+
+.helptip:hover p{
+  display:block;
+  transform-origin: 100% 0%;
+
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.helptip p{    /* The tooltip */
+  display: none;
+  text-align: left;
+  background-color: #1E2021;
+  padding: 20px;
+  width: 300px;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -4px;
+  color: #FFF;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.helptip p:before{ /* The pointer of the tooltip */
+  position: absolute;
+  content: '';
+  width:0;
+  height: 0;
+  border:6px solid transparent;
+  border-bottom-color:#1E2021;
+  right:10px;
+  top:-12px;
+}
+
+.helptip p:after{ /* Prevents the tooltip from being hidden */
+  width:100%;
+  height:40px;
+  content:'';
+  position: absolute;
+  top:-40px;
+  left:0;
+}
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+  0% { 
+      opacity:0; 
+      transform: scale(0.6);
+  }
+
+  100% {
+      opacity:100%;
+      transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:100%; }
 }
