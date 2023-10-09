@@ -1,5 +1,6 @@
 import Clue from "./clue";
 import { useEffect, useState } from "react";
+import styles from "@/styles/crossword.module.css";
 
 function ClueList(props) {
   let { verticalClues, horizontalClues, result } = props;
@@ -37,8 +38,13 @@ function ClueList(props) {
   return (
     <>
       <div>
-        <h1>Clues</h1>
-        <h2>Down</h2>
+        <h1 className={styles.h1} >Clues
+        </h1>
+        <div className={styles.helptip}>
+    <p>Answers can be seen by right-clicking the clue. Right-click again to return to the question. For more instructions, select "How To Play", located in the dropdown menu on the right hand side of the web browser. </p>
+</div>
+        <div className={styles.cluesection}>
+        <h2>Down <span>&#8595;</span></h2> 
         {clueList.VERTICAL.map((clues) => {
           return (
             <div key={clues.CLUE_NUMBER}>
@@ -46,7 +52,9 @@ function ClueList(props) {
             </div>
           );
         })}
-        <h2>Across</h2>
+              </div>
+              <div className={styles.cluesection}>
+        <h2>Across <span>&#8594;</span></h2>
         {clueList.HORIZONTAL.map((clues) => {
           return (
             <div key={clues.CLUE_NUMBER}>
@@ -54,7 +62,8 @@ function ClueList(props) {
             </div>
           );
         })}
-        <h3>Answers can be seen by right-clicking the clue</h3>
+        </div>
+
       </div>
     </>
   );
