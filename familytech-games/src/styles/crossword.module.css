@@ -156,6 +156,14 @@
   left: 0;
 }
 
+.highlightedrow{
+background-color: yellow;
+}
+
+.highlightedcolumn{
+background-color: blue;
+}
+
 /* CSS animation */
 
 @-webkit-keyframes fadeIn {
