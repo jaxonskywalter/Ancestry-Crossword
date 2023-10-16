@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/crossword.module.css";
 
 function Square(props) {
@@ -13,13 +14,26 @@ function Square(props) {
     inputLocation,
   } = props;
 
-  function handleChange(event) {
-    handleSquareInput(event.target.value, row, col, inputLocation);
-  }
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  const handleChange = (event) => {
+    const input = event.target.value;
+    handleSquareInput(input, row, col, inputLocation);
+    setIsCorrect(input.toLowerCase() === key_character.toLowerCase());
+  };
 
   function handleDownKey(event) {
     handleKeyDown(event, row, col, inputLocation);
   }
+
+  useEffect(() => {
+    setIsCorrect(character.toLowerCase() === key_character.toLowerCase());
+  }, [character, key_character]);
+
+  const squareStyle = {
+    backgroundColor: isCorrect ? "green" : "white",
+    borderColor: isCorrect ? "green" : "black",
+  };
 
   return (
     <>
@@ -31,25 +45,17 @@ function Square(props) {
           }
           className={styles.square}
           readOnly={key_character === "*" || key_character === "&"}
-          style={
-            key_character == "*"
+          style={{
+            ...squareStyle,
+            ...(key_character === "*" || key_character === "&"
               ? { backgroundColor: "black", borderColor: "black" }
-              : key_character == "&"
-              ? {
-                  backgroundColor: "white",
-                  height: 0,
-                  width: 0,
-                  border: 0,
-                }
-              : { backgroundColor: "white", borderColor: "black" }
-          }
+              : {}),
+          }}
           maxLength={1}
           type="text"
           onChange={handleChange}
           onKeyDown={handleDownKey}
-          disabled={
-            key_character === "*" || key_character === "&"
-          }
+          disabled={key_character === "*" || key_character === "&"}
         ></input>
       </div>
     </>
