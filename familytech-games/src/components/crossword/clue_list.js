@@ -41,7 +41,7 @@ function ClueList(props) {
         <h1 className={styles.h1} >Clues
         </h1>
         <div className={styles.helptip}>
-    <p>Answers can be seen by right-clicking the clue. Right-click again to return to the question. For more instructions, select "How To Play", located in the dropdown menu on the right hand side of the web browser. </p>
+    <p>Answers can be seen by right-clicking the clue. Right-click again to return to the question. If the entered word is correct in the column or row, it will highlight green. For more instructions, select "How To Play", located in the dropdown menu on the right hand side of the web browser. </p>
 </div>
         <div className={styles.cluesection}>
         <h2>Down <span>&#8595;</span></h2> 
